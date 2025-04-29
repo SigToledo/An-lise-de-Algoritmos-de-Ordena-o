@@ -1,14 +1,13 @@
 import random
 import time
 
+TAMANHO = 100
 
-# Algoritmo Quick Sort
 def quicksort(arr, inicio, fim):
     if inicio < fim:
         p = particiona(arr, inicio, fim)
         quicksort(arr, inicio, p - 1)
         quicksort(arr, p + 1, fim)
-
 
 def particiona(arr, inicio, fim):
     pivo = arr[fim]
@@ -20,19 +19,11 @@ def particiona(arr, inicio, fim):
     arr[i + 1], arr[fim] = arr[fim], arr[i + 1]
     return i + 1
 
+arr = [random.randint(1, 10000000) for _ in range(TAMANHO)]
 
-# Tamanhos definidos na sua tabela
-tamanhos = [100, 1000, 10000, 100000, 1000000, 10000000]
+inicio = time.perf_counter()
+quicksort(arr, 0, len(arr) - 1)
+fim = time.perf_counter()
 
-print(f"{'Tamanho':>12} | {'Tempo (s)':>10}")
-print("-" * 26)
-
-for tamanho in tamanhos:
-    arr = [random.randint(1, 10000000) for _ in range(tamanho)]
-
-    inicio = time.perf_counter()
-    quicksort(arr, 0, len(arr) - 1)
-    fim = time.perf_counter()
-
-    tempo = fim - inicio
-    print(f"{tamanho:>12} | {tempo:>10.6f}")
+print(f"Tamanho: {TAMANHO}")
+print(f"Tempo: {fim - inicio:.6f} segundos")
