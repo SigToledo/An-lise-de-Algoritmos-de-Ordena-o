@@ -20,10 +20,14 @@ def particiona(arr, inicio, fim):
     return i + 1
 
 arr = [random.randint(1, 10000000) for _ in range(TAMANHO)]
+print(f"\n Vetor original (N={TAMANHO}):")
+print(arr)
 
 inicio = time.perf_counter()
 quicksort(arr, 0, len(arr) - 1)
 fim = time.perf_counter()
 
-print(f"Tamanho: {TAMANHO}")
-print(f"Tempo: {fim - inicio:.6f} segundos")
+print(f"\n Vetor ordenado:")
+print(arr)
+
+print(f"\n Tempo: {fim - inicio:.6f} segundos\n")
