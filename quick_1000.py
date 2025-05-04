@@ -19,7 +19,7 @@ def particiona(arr, inicio, fim):
     arr[i + 1], arr[fim] = arr[fim], arr[i + 1]
     return i + 1
 
-arr = [random.randint(1, 10000000) for _ in range(TAMANHO)]
+arr = [random.randint(1, 100000000) for _ in range(TAMANHO)]
 print(f"\n Vetor original (N={TAMANHO}):")
 print(arr)
 
